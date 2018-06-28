@@ -1,10 +1,10 @@
-resource "google_compute_address" "tsukaune-tf-bastion01-ip" {
-  name         = "tsukaune-tf-bastion01-ip"
+resource "google_compute_address" "tf-bastion01-ip" {
+  name         = "tf-bastion01-ip"
   region       = "${var.region}"
 }
 
-resource "google_compute_instance" "tsukaune-tf-bastion01" {
-  name         = "tsukaune-tf-bastion01"
+resource "google_compute_instance" "tf-bastion01" {
+  name         = "tf-bastion01"
   machine_type = "f1-micro"
   zone         = "${var.region_zone}"
   tags         = ["server", "bastion"]
@@ -25,9 +25,9 @@ EOT
 
   network_interface {
     address    = "10.200.11.10"
-    subnetwork = "${google_compute_subnetwork.tsukaune-tf-test-subnet1.name}"
+    subnetwork = "${google_compute_subnetwork.tf-test-subnet1.name}"
     access_config {
-      nat_ip   = "${google_compute_address.tsukaune-tf-bastion01-ip.address}"
+      nat_ip   = "${google_compute_address.tf-bastion01-ip.address}"
     }
   }
 
