@@ -1,5 +1,5 @@
 provider "google" {
-  credentials = "${file("/home/gcpadmin/.config/gcloud/credentials.json")}"
-  project     = "spartan-context-127502"
+  credentials = "${file("/home/hoge/.config/gcloud/credentials.json")}"
+  project     = "PROJECT-ID"
   region      = "asia-northeast1"
 }
