@@ -1,6 +1,6 @@
-resource "google_compute_firewall" "tsukaune-tf-allow-icmp" {
-  name    = "tsukaune-tf-allow-icmp"
-  network = "${google_compute_network.tsukaune-tf-test-nw.name}"
+resource "google_compute_firewall" "tf-allow-icmp" {
+  name    = "tf-allow-icmp"
+  network = "${google_compute_network.tf-test-nw.name}"
   allow {
     protocol = "icmp"
   }
@@ -8,20 +8,20 @@ resource "google_compute_firewall" "tsukaune-tf-allow-icmp" {
   target_tags = ["bastion"]
 }
 
-resource "google_compute_firewall" "tsukaune-tf-allow-tcp-10022" {
-  name    = "tsukaune-tf-allow-tcp-10022"
-  network = "${google_compute_network.tsukaune-tf-test-nw.name}"
+resource "google_compute_firewall" "tf-allow-tcp-10022" {
+  name    = "tf-allow-tcp-10022"
+  network = "${google_compute_network.tf-test-nw.name}"
   allow {
     protocol = "tcp"
     ports    = ["10022"]
   }
-  source_ranges = ["210.171.4.10/32","35.194.117.241/32"]
+  source_ranges = ["my-ip/32","35.194.117.241/32"]
   target_tags = ["bastion"]
 }
 
-resource "google_compute_firewall" "tsukaune-tf-allow-internal" {
-  name    = "tsukaune-tf-allow-internal"
-  network = "${google_compute_network.tsukaune-tf-test-nw.name}"
+resource "google_compute_firewall" "tf-allow-internal" {
+  name    = "tf-allow-internal"
+  network = "${google_compute_network.tf-test-nw.name}"
   allow {
     protocol = "tcp"
     ports    = ["0-65535"]
@@ -37,9 +37,9 @@ resource "google_compute_firewall" "tsukaune-tf-allow-internal" {
   target_tags = ["server"]
 }
 
-resource "google_compute_firewall" "tsukaune-tf-allow-internal-lb" {
-  name    = "tsukaune-tf-allow-internal-lb"
-  network = "${google_compute_network.tsukaune-tf-test-nw.name}"
+resource "google_compute_firewall" "tf-allow-internal-lb" {
+  name    = "tf-allow-internal-lb"
+  network = "${google_compute_network.tf-test-nw.name}"
   allow {
     protocol = "tcp"
     ports    = ["11210"]
@@ -48,9 +48,9 @@ resource "google_compute_firewall" "tsukaune-tf-allow-internal-lb" {
   target_tags = ["web"]
 }
 
-resource "google_compute_firewall" "tsukaune-tf-allow-health-check" {
-  name    = "tsukaune-tf-allow-health-check"
-  network = "${google_compute_network.tsukaune-tf-test-nw.name}"
+resource "google_compute_firewall" "tf-allow-health-check" {
+  name    = "tf-allow-health-check"
+  network = "${google_compute_network.tf-test-nw.name}"
   allow {
     protocol = "tcp"
     ports    = ["0-65535"]
