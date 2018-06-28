@@ -12,13 +12,13 @@ variable "region_zone2" {
 variable "bastion_ssh_keys" {
   type = "string"
   default = <<EOF
-gcpadmin:ssh-rsa hogehoge
+USER:ssh-rsa hogehoge
 EOF
 }
  
 variable "web_ssh_keys" {
   type = "string"
   default = <<EOF
-gcpadmin:ssh-rsa hogehoge
+USER:ssh-rsa hogehoge
 EOF
 }
