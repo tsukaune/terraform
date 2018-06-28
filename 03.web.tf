@@ -1,5 +1,5 @@
-resource "google_compute_instance" "tsukaune-tf-web01" {
-  name         = "tsukaune-tf-web01"
+resource "google_compute_instance" "tf-web01" {
+  name         = "tf-web01"
   machine_type = "n1-standard-2"
   zone         = "${var.region_zone}"
   tags         = ["server", "web"]
@@ -14,7 +14,7 @@ resource "google_compute_instance" "tsukaune-tf-web01" {
 
   network_interface {
     address = "10.200.12.11"
-    subnetwork = "${google_compute_subnetwork.tsukaune-tf-test-subnet2.name}"
+    subnetwork = "${google_compute_subnetwork.tf-test-subnet2.name}"
     access_config {
     }
   }
@@ -29,8 +29,8 @@ EOT
   }
 }
 
-resource "google_compute_instance" "tsukaune-tf-web02" {
-  name         = "tsukaune-tf-web02"
+resource "google_compute_instance" "tf-web02" {
+  name         = "tf-web02"
   machine_type = "n1-standard-2"
   zone         = "${var.region_zone}"
   tags         = ["server", "web"]
@@ -45,7 +45,7 @@ resource "google_compute_instance" "tsukaune-tf-web02" {
 
   network_interface {
     address = "10.200.12.12"
-    subnetwork = "${google_compute_subnetwork.tsukaune-tf-test-subnet2.name}"
+    subnetwork = "${google_compute_subnetwork.tf-test-subnet2.name}"
     access_config {
     }
   }
@@ -60,8 +60,8 @@ EOT
   }
 }
 
-resource "google_compute_instance" "tsukaune-tf-web03" {
-  name         = "tsukaune-tf-web03"
+resource "google_compute_instance" "tf-web03" {
+  name         = "tf-web03"
   machine_type = "n1-standard-2"
   zone         = "${var.region_zone}"
   tags         = ["server", "web"]
@@ -76,7 +76,7 @@ resource "google_compute_instance" "tsukaune-tf-web03" {
 
   network_interface {
     address = "10.200.12.13"
-    subnetwork = "${google_compute_subnetwork.tsukaune-tf-test-subnet2.name}"
+    subnetwork = "${google_compute_subnetwork.tf-test-subnet2.name}"
     access_config {
     }
   }
